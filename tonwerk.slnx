@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Tonwerk/Tonwerk.csproj" />
+  </Folder>
+  <Folder Name="/apps/">
+    <Project Path="apps/Tonwerk.Chords/Tonwerk.Chords.csproj" />
+    <Project Path="apps/Tonwerk.Melody/Tonwerk.Melody.csproj" />
+    <Project Path="apps/Tonwerk.Noise/Tonwerk.Noise.csproj" />
+  </Folder>
+  <Folder Name="/spikes/">
+    <Project Path="spikes/Tonwerk.PitchClasses/Tonwerk.PitchClasses.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Tonwerk.Tests/Tonwerk.Tests.csproj" />
+  </Folder>
+</Solution>

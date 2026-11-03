@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- no package dependencies: everything is synthesized in the time domain -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Tonwerk.PitchClasses" />
+  </ItemGroup>
+
+</Project>
