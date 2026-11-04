@@ -81,3 +81,22 @@ public class HarmonyTests
         Assert.Contains("Invalid roman numeral at", ex.Message);
     }
 }
+
+public class HarmonyBarsTests
+{
+    [Fact]
+    public void ParseBars_GroupsChordsByBarLine()
+    {
+        var bars = Harmony.ParseBars(Key.Major(Pitch.C4), "I | V7 I | V7");
+        Assert.Equal([1, 2, 1], bars.Select(b => b.Length));
+    }
+
+    [Fact]
+    public void Progression_WithBars_SplitsEachBarEqually()
+    {
+        const int rate = 44_100;
+        var bars = Harmony.ParseBars(Key.Major(Pitch.C4), "I | V7 I");
+        var track = Synthesizer.Progression(bars, bpm: 120, Waveform.Sine, rate);
+        Assert.Equal(2 * 4 * 0.5, track.Duration.TotalSeconds, 2); // two 4/4 bars at 120 bpm
+    }
+}

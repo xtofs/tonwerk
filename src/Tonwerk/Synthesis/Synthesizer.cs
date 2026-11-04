@@ -36,4 +36,12 @@ public static class Synthesizer
     /// <summary>A chord progression: one chord per bar.</summary>
     public static Track Progression(IEnumerable<Chord> chords, double bpm, Waveform waveform, int rate, int beatsPerBar = 4) =>
         Track.Concat(rate, chords.Select(chord => Chord(chord, beatsPerBar * 60.0 / bpm, waveform, rate)));
+
+    /// <summary>
+    /// A chord progression with a harmonic rhythm: each bar holds one or more
+    /// chords that divide the bar equally (e.g. two chords = half a bar each).
+    /// </summary>
+    public static Track Progression(Chord[][] bars, double bpm, Waveform waveform, int rate, int beatsPerBar = 4) =>
+        Track.Concat(rate, bars.SelectMany(bar =>
+            bar.Select(chord => Chord(chord, beatsPerBar * 60.0 / bpm / bar.Length, waveform, rate))));
 }

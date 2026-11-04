@@ -3,8 +3,8 @@
     <Project Path="src/Tonwerk/Tonwerk.csproj" />
   </Folder>
   <Folder Name="/apps/">
-    <Project Path="apps/Tonwerk.Chords/Tonwerk.Chords.csproj" />
     <Project Path="apps/Tonwerk.Melody/Tonwerk.Melody.csproj" />
+    <Project Path="apps/Tonwerk.Monophonic/Tonwerk.Monophonic.csproj" />
     <Project Path="apps/Tonwerk.Noise/Tonwerk.Noise.csproj" />
   </Folder>
   <Folder Name="/spikes/">

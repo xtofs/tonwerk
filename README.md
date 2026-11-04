@@ -15,8 +15,8 @@ tonwerk/
 │   ├── Synthesis/           # Waveform, Oscillator, Synthesizer, Noise, Track
 │   └── Wav/                 # low-level RIFF/WAV writing
 ├── apps/
-│   ├── Tonwerk.Melody/      # monophonic melody, selectable waveform  -> audio.wav
-│   ├── Tonwerk.Chords/      # polyphonic: melody over a chord progression -> ode-to-joy.wav
+│   ├── Tonwerk.Monophonic/  # monophonic melody, selectable waveform  -> audio.wav
+│   ├── Tonwerk.Melody/       # polyphonic: all 16 bars of Ode to Joy over chords -> ode-to-joy.wav
 │   └── Tonwerk.Noise/       # colors of noise (time domain, or --spectral via inverse FFT)
 ├── spikes/
 │   └── Tonwerk.PitchClasses/  # experiments with the pitch-class representation
@@ -127,8 +127,8 @@ pass WAV files to plot those instead: `plot_spectra.py audio.wav -o out.png`.
 ```sh
 dotnet build tonwerk.slnx
 dotnet test tonwerk.slnx
-dotnet run --project apps/Tonwerk.Melody [-- --waveform Square]   # writes audio.wav
-dotnet run --project apps/Tonwerk.Chords                          # writes ode-to-joy.wav (melody over I | V7 | I | V7)
+dotnet run --project apps/Tonwerk.Monophonic [-- --waveform Square]   # writes audio.wav
+dotnet run --project apps/Tonwerk.Melody                          # writes ode-to-joy.wav (melody over I | V7 | I | V7)
 dotnet run --project apps/Tonwerk.Noise [-- --spectral]           # writes noise-white.wav ... noise-violet.wav
 ./convert.sh audio.wav                                            # optional: convert to audio.m4a (needs ffmpeg)
 ```

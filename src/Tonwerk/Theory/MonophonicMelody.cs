@@ -12,7 +12,7 @@ public static class MonophonicMelody
     /// values repeat the previous note's, so only changes need to be written.
     /// The first note must specify both.
     /// </summary>
-    public static Note[] Parse(this string s)
+    public static Note[] ParseMelody(this string s)
     {
         var notes = new List<Note>();
         var span = s.AsSpan();
