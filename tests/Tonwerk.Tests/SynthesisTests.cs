@@ -75,3 +75,57 @@ public class SynthesisTests
         Assert.All(track.Samples.ToArray(), s => Assert.InRange(s, -1.0, 1.0));
     }
 }
+
+public class EnvelopeTests
+{
+    const int Rate = 44_100;
+
+    static double Peak(ReadOnlySpan<double> samples)
+    {
+        var peak = 0.0;
+        foreach (var s in samples) peak = Math.Max(peak, Math.Abs(s));
+        return peak;
+    }
+
+    [Fact]
+    public void Default_tone_is_sustained()
+    {
+        var plain = Synthesizer.Tone(440, 1, Waveform.Square, Rate);
+        var sustained = Synthesizer.Tone(440, 1, Waveform.Square, Rate, Envelope.Sustained);
+        Assert.Equal(plain.Samples.ToArray(), sustained.Samples.ToArray());
+
+        // flat in the middle, faded at both ends
+        Assert.Equal(1.0, Peak(plain.Samples.Slice(Rate / 2 - 100, 200)));
+        Assert.Equal(0.0, plain.Samples[0]);
+        Assert.Equal(0.0, Peak(plain.Samples.Slice(plain.Length - 1, 1)));
+    }
+
+    [Fact]
+    public void Plucked_tone_decays()
+    {
+        var track = Synthesizer.Tone(440, 2, Waveform.Square, Rate, Envelope.Plucked);
+        var early = Peak(track.Samples.Slice(Rate / 20, 1000));       // ~50 ms in
+        var late = Peak(track.Samples.Slice(Rate * 3 / 2, 1000));      // ~1.5 s in
+        Assert.True(early > 0.85, $"early {early}");
+        Assert.True(late < 0.1, $"late {late}");
+    }
+
+    [Fact]
+    public void Envelope_gain_stays_within_unit_range_even_for_very_short_notes()
+    {
+        foreach (var envelope in new[] { Envelope.Sustained, Envelope.Plucked })
+        {
+            for (var count = 1; count < 50; count++)
+                for (var i = 0; i < count; i++)
+                    Assert.InRange(envelope.Gain(i, count, Rate), 0.0, 1.0);
+        }
+    }
+
+    [Fact]
+    public void Envelope_is_passed_through_chords()
+    {
+        var sustained = Synthesizer.Chord(Chord.Major(Pitch.C4), 2, Waveform.Sine, Rate);
+        var plucked = Synthesizer.Chord(Chord.Major(Pitch.C4), 2, Waveform.Sine, Rate, Envelope.Plucked);
+        Assert.True(Peak(plucked.Samples.Slice(Rate * 3 / 2, 1000)) < Peak(sustained.Samples.Slice(Rate * 3 / 2, 1000)) / 4);
+    }
+}
