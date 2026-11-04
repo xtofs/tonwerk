@@ -179,3 +179,44 @@ How the generated files look in the frequency domain (`scripts/plot.py` plots th
   ![Average spectrum of noise-pink.wav: a straight line falling 3 dB per octave](spectrum-noise-pink.png)
 
 There are two ways to make noise of a given color. `Noise.Generate` works in the time domain by filtering random samples, which is cheap and never repeats. `Tonwerk.Noise --spectral` works in the frequency domain: it chooses a random phase and the right magnitude for every frequency and applies the inverse Fourier transform. That is exact for the slope, but it produces one fixed-length block. Tones and chords need no Fourier transform at all: adding sine waves in the time domain is already the "inverse transform" of the spikes.
+
+## Ratios and tuning
+
+A note is a stack of overtones at whole-number multiples of its frequency: f, 2f, 3f, 4f, … Two notes sound consonant when their frequencies stand in a small whole-number ratio, because their overtones then coincide instead of beating against each other. The simpler the ratio, the more overtones coincide and the more stable the interval sounds:
+
+| Interval      | Just ratio | Why it fits                                                      |
+| ------------- | ---------- | ---------------------------------------------------------------- |
+| Octave        | 2:1        | every overtone of the upper note is also one of the lower note   |
+| Perfect fifth | 3:2        | the 3rd overtone of the lower note is the 2nd of the upper note  |
+| Perfect fourth | 4:3       |                                                                  |
+| Major third   | 5:4        |                                                                  |
+| Minor third   | 6:5        |                                                                  |
+
+A major triad in just intonation is the frequencies 4 : 5 : 6 (C E G = 264 : 330 : 396 Hz for a C of 264 Hz), a minor triad 10 : 12 : 15.
+
+### Equal temperament
+
+A piano (and `Pitch.Frequency`) uses twelve-tone equal temperament: the octave is divided into 12 equal steps, each a factor of 2^(1/12). That number is irrational, so no equal-tempered interval except the octave is an exact fraction. The approximations (100 cents = 1 semitone):
+
+| Interval      | Equal-tempered ratio | Just ratio | Error           |
+| ------------- | -------------------- | ---------- | --------------- |
+| Perfect fifth | 2^(7/12) = 1.4983    | 1.5        | 2 cents flat    |
+| Perfect fourth | 2^(5/12) = 1.3348   | 1.3333     | 2 cents sharp   |
+| Major third   | 2^(4/12) = 1.2599    | 1.25       | 14 cents sharp  |
+| Minor third   | 2^(3/12) = 1.1892    | 1.2        | 16 cents flat   |
+
+Fifths and fourths are almost pure; the thirds are audibly off. That is why a choir or string quartet that tunes its thirds by ear sounds subtly different from a piano.
+
+### The comma, and why the line of fifths wraps
+
+Stack 12 pure fifths and you get (3/2)^12 = 129.75, but seven octaves are 2^7 = 128. The two differ by a factor of 1.0136, about 23.5 cents: the *Pythagorean comma*. With pure tuning the line of fifths therefore never closes: B♯ ends up slightly higher than C, and F♯ differs from G♭.
+
+Equal temperament shaves one twelfth of the comma off every fifth, so that the line closes after 12 steps. In `PitchClass` terms:
+
+- `Offset` identifies a spelling, one position on the (open) line of fifths, so B♯ (12) and C (0) are different pitch classes.
+- `Semitone = (7 × Offset) mod 12` is the equal-temperament collapse that makes them the same key, and therefore the same frequency.
+
+Equal temperament trades pure thirds for the freedom to play in every key with the same tuning.
+
+> **TODO:** hear the difference. Render a major triad (and a short progression) once in just intonation (4 : 5 : 6) and once equal-tempered, and compare the sound and the spectra. See the README's TODO list.
+
