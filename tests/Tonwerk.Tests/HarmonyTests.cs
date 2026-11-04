@@ -100,3 +100,28 @@ public class HarmonyBarsTests
         Assert.Equal(2 * 4 * 0.5, track.Duration.TotalSeconds, 2); // two 4/4 bars at 120 bpm
     }
 }
+
+public class DorianTests
+{
+    [Fact]
+    public void Dorian_HasMajorIV_WhereNaturalMinorHasMinorIv()
+    {
+        // roots are voiced closest to the tonic (D4): C is the C4 below it
+        var chords = Harmony.Parse(Key.Dorian(Pitch.D4), "i IV VII III");
+        Assert.Equal("D4 F4 A4", chords[0].ToString());
+        Assert.Equal("G4 B4 D5", chords[1].ToString());  // G major: contains the raised sixth, B
+        Assert.Equal("C4 E4 G4", chords[2].ToString());
+        Assert.Equal("F4 A4 C5", chords[3].ToString());
+
+        var minor = Harmony.Parse(Key.Minor(Pitch.D4), "iv")[0];
+        Assert.Equal("G4 A#4 D5", minor.ToString());     // natural minor: Bb (printed as A#), not B
+    }
+
+    [Fact]
+    public void Dorian_SixthDegreeIsMajorSixthAboveTonic()
+    {
+        var key = Key.Dorian(Pitch.D4);
+        Assert.Equal(Pitch.D4 + 9 - 12, key.Root(6)); // B3 (voiced below the tonic)
+        Assert.Equal(Pitch.D4 + 3, key.Root(3));      // F4
+    }
+}

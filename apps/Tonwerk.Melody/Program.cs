@@ -1,53 +1,31 @@
-// Plays all 16 bars of Ode to Joy over a chord progression and writes ode-to-joy.wav.
+// Plays a melody over a chord progression and writes <piece>.wav.
 // Both are rendered in the time domain, then mixed by addition.
+//
+// usage: Tonwerk.Melody [ode-to-joy | scarborough-fair]     (default: ode-to-joy)
 
 const int Rate = 44_100;
-const double Bpm = 140;
-const double Volume = 0.5;
+const double Volume = 0.25;
 
-// octave and duration are sticky: omitted values repeat the previous note's
-var melody = """
-    E4/4 E F G   |
-    G F E D      |
-    C C D E      |
-    E/4. D/8 D/2 |
+var name = args.FirstOrDefault() ?? Pieces.OdeToJoy.Name;
+var piece = Pieces.All.FirstOrDefault(p => p.Name == name);
+if (piece is null)
+{
+    Console.Error.WriteLine($"unknown piece '{name}'. available: {string.Join(", ", Pieces.All.Select(p => p.Name))}");
+    return 1;
+}
 
-    E/4 E F G    |
-    G F E D      |
-    C C D E      |
-    D/4. C/8 C/2 |
+var melody = piece.Melody.ParseMelody();
+var progression = piece.Harmony.ParseHarmonyBars(piece.Key);
 
-    D/4 D E C     |
-    D E/8 F E/4 C |
-    D E/8 F E/4 D |
-    C D G3/2      |
+Console.WriteLine($"{piece.Title}, {piece.Bpm} bpm, key {piece.Key}");
+Console.WriteLine($"progression: {string.Join(" | ", progression.Select(bar => string.Join(" ", bar.Select(c => $"[{c}]"))))}");
 
-    E4/4 E F G   |
-    G F E D      |
-    C C D E      |
-    D/4. C/8 C/2
-    """.ParseMelody();
-
-// The harmonic rhythm in C major: mostly one chord per bar, two chords in the
-// bars where the melody changes function halfway through.
-//
-//   phrase 1   I | V7 | I | V7         half cadence: bar 4 ends on V7, the phrase stays open
-//   phrase 2   I | V7 | I | V7 I       authentic cadence: the D in bar 8 sits on V7, the final C on I
-//   phrase 3   V7 I | V7 I | V7 | I V7 the "bridge": leans on the dominant, ends open on V7
-//   phrase 4   I | V7 | I | V7 I       same as phrase 2, now closing for good
-//
-// Bar lines separate bars; chords within a bar split it equally.
-var progression = """
-    I     | V7    | I     | V7     |
-    I     | V7    | I     | V7 I   |
-    V7 I  | V7 I  | V7    | I  V7  |
-    I     | V7    | I     | V7 I
-    """.ParseHarmonyBars(Key.Major(Pitch.C4));
-
-var melodyTrack = Synthesizer.Melody(melody, Bpm, Waveform.Sine, Rate);
-var chordTrack = Synthesizer.Progression(progression, Bpm, Waveform.Sine, Rate);
+var melodyTrack = Synthesizer.Melody(melody, piece.Bpm, Waveform.Sine, Rate);
+var chordTrack = Synthesizer.Progression(progression, piece.Bpm, Waveform.Triangle, Rate, piece.BeatsPerBar);
 var mix = melodyTrack.Mix(chordTrack);
 
-using var writer = new WavWriter("ode-to-joy.wav", Rate);
+var path = $"{piece.Name}.wav";
+using var writer = new WavWriter(path, Rate);
 writer.Write(mix, Volume);
-Console.WriteLine($"wrote ode-to-joy.wav ({mix.Duration.TotalSeconds:F2} s)");
+Console.WriteLine($"wrote {path} ({mix.Duration.TotalSeconds:F2} s)");
+return 0;

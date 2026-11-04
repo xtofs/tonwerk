@@ -17,7 +17,7 @@ tonwerk/
 │   └── Wav/                 # low-level RIFF/WAV writing
 ├── apps/
 │   ├── Tonwerk.Monophonic/  # monophonic melody, selectable waveform  -> audio.wav
-│   ├── Tonwerk.Melody/      # polyphonic: all 16 bars of Ode to Joy over chords -> ode-to-joy.wav
+│   ├── Tonwerk.Melody/      # polyphonic: melody over chords; pieces: ode-to-joy, scarborough-fair (D Dorian, 3/4)
 │   └── Tonwerk.Noise/       # colors of noise (time domain, or --spectral via inverse FFT)
 ├── tests/Tonwerk.Tests/     # xunit tests
 ├── docs/                    # THEORY.md (pitch classes, intervals, harmony, spectra) and its figures
@@ -128,7 +128,7 @@ python3 -m venv .venv
 dotnet build tonwerk.slnx
 dotnet test tonwerk.slnx
 dotnet run --project apps/Tonwerk.Monophonic [-- --waveform Square]   # writes audio.wav
-dotnet run --project apps/Tonwerk.Melody                          # writes ode-to-joy.wav (melody over I | V7 | I | V7)
+dotnet run --project apps/Tonwerk.Melody [-- scarborough-fair]       # writes ode-to-joy.wav (default) or scarborough-fair.wav
 dotnet run --project apps/Tonwerk.Noise [-- --spectral]           # writes noise-white.wav ... noise-violet.wav
 ./convert.sh audio.wav                                            # optional: convert to audio.m4a (needs ffmpeg)
 ```
