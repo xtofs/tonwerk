@@ -18,10 +18,8 @@ tonwerk/
 │   ├── Tonwerk.Monophonic/  # monophonic melody, selectable waveform  -> audio.wav
 │   ├── Tonwerk.Melody/       # polyphonic: all 16 bars of Ode to Joy over chords -> ode-to-joy.wav
 │   └── Tonwerk.Noise/       # colors of noise (time domain, or --spectral via inverse FFT)
-├── spikes/
-│   └── Tonwerk.PitchClasses/  # experiments with the pitch-class representation
 ├── tests/Tonwerk.Tests/     # xunit tests
-├── scripts/                 # gen_pitches.py, plot_spectra.py
+├── scripts/                 # gen_pitches.py, gen_pitch_classes.cs (single-file C#), plot_spectra.py
 └── tonwerk.slnx
 ```
 

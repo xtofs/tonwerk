@@ -7,9 +7,6 @@
     <Project Path="apps/Tonwerk.Monophonic/Tonwerk.Monophonic.csproj" />
     <Project Path="apps/Tonwerk.Noise/Tonwerk.Noise.csproj" />
   </Folder>
-  <Folder Name="/spikes/">
-    <Project Path="spikes/Tonwerk.PitchClasses/Tonwerk.PitchClasses.csproj" />
-  </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/Tonwerk.Tests/Tonwerk.Tests.csproj" />
   </Folder>

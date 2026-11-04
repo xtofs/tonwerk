@@ -75,6 +75,17 @@ public readonly record struct PitchClass : IPrefixParsable<PitchClass>
         return true;
     }
 
+    // the named constants below span Fb (-8) to B# (12)
+    private const int FirstOffset = -8;
+    private const int LastOffset = 12;
+
+    /// <summary>
+    /// All named pitch classes in line-of-fifths order, from Fb (offset −8) to B# (offset 12):
+    /// each element is a perfect fifth above the previous one.
+    /// </summary>
+    public static IEnumerable<PitchClass> All =>
+        Enumerable.Range(FirstOffset, LastOffset - FirstOffset + 1).Select(offset => new PitchClass(offset));
+
     private static int Mod(int a, int n) => ((a % n) + n) % n;
     private static int FloorDiv(int a, int n) => (int)Math.Floor((double)a / n);
 
