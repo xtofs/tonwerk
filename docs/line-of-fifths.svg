@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1238 150" width="1238" font-family="sans-serif" font-size="15">
+<text x="10" y="20" font-size="14" fill="#444">each step to the right is a perfect fifth (+7 semitones, mod 12)</text>
+<rect x="12" y="34" width="54" height="44" rx="6" fill="#cfe3f7" stroke="#555"/>
+<text x="39.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">F♭</text>
+<text x="39.0" y="98" text-anchor="middle" fill="#333">4</text>
+<text x="39.0" y="118" text-anchor="middle" fill="#888" font-size="12">-8</text>
+<text x="68" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="70" y="34" width="54" height="44" rx="6" fill="#cfe3f7" stroke="#555"/>
+<text x="97.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">C♭</text>
+<text x="97.0" y="98" text-anchor="middle" fill="#333">11</text>
+<text x="97.0" y="118" text-anchor="middle" fill="#888" font-size="12">-7</text>
+<text x="126" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="128" y="34" width="54" height="44" rx="6" fill="#cfe3f7" stroke="#555"/>
+<text x="155.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">G♭</text>
+<text x="155.0" y="98" text-anchor="middle" fill="#333">6</text>
+<text x="155.0" y="118" text-anchor="middle" fill="#888" font-size="12">-6</text>
+<text x="184" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="186" y="34" width="54" height="44" rx="6" fill="#cfe3f7" stroke="#555"/>
+<text x="213.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">D♭</text>
+<text x="213.0" y="98" text-anchor="middle" fill="#333">1</text>
+<text x="213.0" y="118" text-anchor="middle" fill="#888" font-size="12">-5</text>
+<text x="242" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="244" y="34" width="54" height="44" rx="6" fill="#cfe3f7" stroke="#555"/>
+<text x="271.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">A♭</text>
+<text x="271.0" y="98" text-anchor="middle" fill="#333">8</text>
+<text x="271.0" y="118" text-anchor="middle" fill="#888" font-size="12">-4</text>
+<text x="300" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="302" y="34" width="54" height="44" rx="6" fill="#cfe3f7" stroke="#555"/>
+<text x="329.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">E♭</text>
+<text x="329.0" y="98" text-anchor="middle" fill="#333">3</text>
+<text x="329.0" y="118" text-anchor="middle" fill="#888" font-size="12">-3</text>
+<text x="358" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="360" y="34" width="54" height="44" rx="6" fill="#cfe3f7" stroke="#555"/>
+<text x="387.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">B♭</text>
+<text x="387.0" y="98" text-anchor="middle" fill="#333">10</text>
+<text x="387.0" y="118" text-anchor="middle" fill="#888" font-size="12">-2</text>
+<text x="416" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="418" y="34" width="54" height="44" rx="6" fill="#ffffff" stroke="#555"/>
+<text x="445.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">F</text>
+<text x="445.0" y="98" text-anchor="middle" fill="#333">5</text>
+<text x="445.0" y="118" text-anchor="middle" fill="#888" font-size="12">-1</text>
+<text x="474" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="476" y="34" width="54" height="44" rx="6" fill="#ffffff" stroke="#555"/>
+<text x="503.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">C</text>
+<text x="503.0" y="98" text-anchor="middle" fill="#333">0</text>
+<text x="503.0" y="118" text-anchor="middle" fill="#888" font-size="12">+0</text>
+<text x="532" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="534" y="34" width="54" height="44" rx="6" fill="#ffffff" stroke="#555"/>
+<text x="561.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">G</text>
+<text x="561.0" y="98" text-anchor="middle" fill="#333">7</text>
+<text x="561.0" y="118" text-anchor="middle" fill="#888" font-size="12">+1</text>
+<text x="590" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="592" y="34" width="54" height="44" rx="6" fill="#ffffff" stroke="#555"/>
+<text x="619.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">D</text>
+<text x="619.0" y="98" text-anchor="middle" fill="#333">2</text>
+<text x="619.0" y="118" text-anchor="middle" fill="#888" font-size="12">+2</text>
+<text x="648" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="650" y="34" width="54" height="44" rx="6" fill="#ffffff" stroke="#555"/>
+<text x="677.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">A</text>
+<text x="677.0" y="98" text-anchor="middle" fill="#333">9</text>
+<text x="677.0" y="118" text-anchor="middle" fill="#888" font-size="12">+3</text>
+<text x="706" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="708" y="34" width="54" height="44" rx="6" fill="#ffffff" stroke="#555"/>
+<text x="735.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">E</text>
+<text x="735.0" y="98" text-anchor="middle" fill="#333">4</text>
+<text x="735.0" y="118" text-anchor="middle" fill="#888" font-size="12">+4</text>
+<text x="764" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="766" y="34" width="54" height="44" rx="6" fill="#ffffff" stroke="#555"/>
+<text x="793.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">B</text>
+<text x="793.0" y="98" text-anchor="middle" fill="#333">11</text>
+<text x="793.0" y="118" text-anchor="middle" fill="#888" font-size="12">+5</text>
+<text x="822" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="824" y="34" width="54" height="44" rx="6" fill="#fbd9b5" stroke="#555"/>
+<text x="851.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">F♯</text>
+<text x="851.0" y="98" text-anchor="middle" fill="#333">6</text>
+<text x="851.0" y="118" text-anchor="middle" fill="#888" font-size="12">+6</text>
+<text x="880" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="882" y="34" width="54" height="44" rx="6" fill="#fbd9b5" stroke="#555"/>
+<text x="909.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">C♯</text>
+<text x="909.0" y="98" text-anchor="middle" fill="#333">1</text>
+<text x="909.0" y="118" text-anchor="middle" fill="#888" font-size="12">+7</text>
+<text x="938" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="940" y="34" width="54" height="44" rx="6" fill="#fbd9b5" stroke="#555"/>
+<text x="967.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">G♯</text>
+<text x="967.0" y="98" text-anchor="middle" fill="#333">8</text>
+<text x="967.0" y="118" text-anchor="middle" fill="#888" font-size="12">+8</text>
+<text x="996" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="998" y="34" width="54" height="44" rx="6" fill="#fbd9b5" stroke="#555"/>
+<text x="1025.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">D♯</text>
+<text x="1025.0" y="98" text-anchor="middle" fill="#333">3</text>
+<text x="1025.0" y="118" text-anchor="middle" fill="#888" font-size="12">+9</text>
+<text x="1054" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="1056" y="34" width="54" height="44" rx="6" fill="#fbd9b5" stroke="#555"/>
+<text x="1083.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">A♯</text>
+<text x="1083.0" y="98" text-anchor="middle" fill="#333">10</text>
+<text x="1083.0" y="118" text-anchor="middle" fill="#888" font-size="12">+10</text>
+<text x="1112" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="1114" y="34" width="54" height="44" rx="6" fill="#fbd9b5" stroke="#555"/>
+<text x="1141.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">E♯</text>
+<text x="1141.0" y="98" text-anchor="middle" fill="#333">5</text>
+<text x="1141.0" y="118" text-anchor="middle" fill="#888" font-size="12">+11</text>
+<text x="1170" y="60" text-anchor="middle" fill="#888" font-size="13">→</text>
+<rect x="1172" y="34" width="54" height="44" rx="6" fill="#fbd9b5" stroke="#555"/>
+<text x="1199.0" y="62" text-anchor="middle" font-size="20" font-weight="bold">B♯</text>
+<text x="1199.0" y="98" text-anchor="middle" fill="#333">0</text>
+<text x="1199.0" y="118" text-anchor="middle" fill="#888" font-size="12">+12</text>
+<text x="1228" y="98" text-anchor="end" fill="#333" font-size="12">semitone (0–11)</text>
+<text x="1228" y="118" text-anchor="end" fill="#888" font-size="12">Offset</text>
+<text x="10" y="140" fill="#555" font-size="12">flats (blue) · naturals · sharps (orange) — same semitone, different spelling: F♯ (6) and G♭ (−6) are the same key on the piano</text>
+</svg>

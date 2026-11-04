@@ -493,6 +493,6 @@ $RECYCLE.BIN/
 **/*.m4a
 **/*.wav
 
-# Python virtual environments (scripts/plot_spectra.py)
+# Python virtual environments (scripts/plot.py)
 .venv/
 spectra.png

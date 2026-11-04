@@ -4,6 +4,7 @@ A small .NET playground for sound synthesis: a dependency-free class library
 for pitches, notes, chords, tracks, oscillators, noise, and WAV file writing,
 plus console apps that render melodies, chord progressions, and colors of noise.
 Everything is synthesized in the time domain and mixed by adding samples.
+See [docs/THEORY.md](docs/THEORY.md) for the music and signal theory behind it.
 
 ## Layout
 
@@ -16,10 +17,11 @@ tonwerk/
 │   └── Wav/                 # low-level RIFF/WAV writing
 ├── apps/
 │   ├── Tonwerk.Monophonic/  # monophonic melody, selectable waveform  -> audio.wav
-│   ├── Tonwerk.Melody/       # polyphonic: all 16 bars of Ode to Joy over chords -> ode-to-joy.wav
+│   ├── Tonwerk.Melody/      # polyphonic: all 16 bars of Ode to Joy over chords -> ode-to-joy.wav
 │   └── Tonwerk.Noise/       # colors of noise (time domain, or --spectral via inverse FFT)
 ├── tests/Tonwerk.Tests/     # xunit tests
-├── scripts/                 # gen_pitches.py, gen_pitch_classes.cs (single-file C#), plot_spectra.py
+├── docs/                    # THEORY.md (pitch classes, intervals, harmony, spectra) and its figures
+├── scripts/                 # gen_pitches.py, gen_pitch_classes.cs (single-file C#), plot.py
 └── tonwerk.slnx
 ```
 
@@ -96,6 +98,8 @@ Chord[] progression = "I V7 I V7".ParseHarmony(Key.Major(Pitch.C4));
 
 ## Colors of noise
 
+(Why a noise color is a straight line in a spectrum: see [Time domain and frequency domain](docs/THEORY.md#time-domain-and-frequency-domain).)
+
 `Noise.Generate(color, seconds, rate)` makes white, pink, brown, blue and violet
 noise sample by sample in the time domain: white noise is random samples; pink
 uses Paul Kellet's filter bank (−3 dB/octave); brown is leaky integration (−6);
@@ -107,18 +111,16 @@ The noise app can also build the exact *P ∝ 1/f^α* spectrum (`--spectral`):
 every audible FFT bin gets a **uniformly random phase** (that is what makes it
 noise) and a magnitude *f^(−α/2)*, and an inverse FFT turns it into samples.
 That is the only place FftSharp is used, and the result is a single block.
-`scripts/plot_spectra.py` plots the spectra of generated WAV files. It needs
-numpy + matplotlib: either `uv run scripts/plot_spectra.py` (dependencies are
-declared inline), or
+`scripts/plot.py <file.wav>` plots a WAV file's average power spectrum on a
+log frequency axis (each noise color is a straight line at its dB/octave
+slope). It needs numpy + matplotlib: either `uv run scripts/plot.py noise-pink.wav`
+(dependencies are declared inline), or
 
 ```sh
 python3 -m venv .venv
 .venv/bin/pip install -r scripts/requirements.txt
-.venv/bin/python scripts/plot_spectra.py
+.venv/bin/python scripts/plot.py noise-pink.wav -o out.png
 ```
-
-Without arguments it plots the demo output (`noise-*.wav`, `spectrum.wav`);
-pass WAV files to plot those instead: `plot_spectra.py audio.wav -o out.png`.
 
 ## Build and run
 
